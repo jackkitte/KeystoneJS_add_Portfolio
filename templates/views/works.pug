@@ -1,0 +1,20 @@
+extends ../layouts/default
+
+block content
+  .container
+    h1
+      | 制作物
+    .row
+      .col-md-12.col-lg-12
+        .row
+          each work in works
+            .col-md-4.col-lg-4
+              .thumbnail
+                if work.image.exists
+                  img.img-responsive(src=work._.image.fit(640,640))
+                .caption
+                  h3
+                    != work.title
+                  p
+                    a.btn.btn-success.btn-block(href='/works/' + work.slug)
+                      | 詳細へ
