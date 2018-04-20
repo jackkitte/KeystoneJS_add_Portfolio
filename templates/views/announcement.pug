@@ -1,0 +1,11 @@
+extends ../layouts/default
+
+block content
+  .container
+    h2 Announcements
+    .list-group
+      each announcement in announcements
+        a.list-group-item(href='#')
+          h4.list-group-item-heading #{announcement.title}
+          p.list-group-item-text #{announcement.description}
+          p #{announcement.date}
