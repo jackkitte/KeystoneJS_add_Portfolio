@@ -3,11 +3,11 @@
   "version": "0.0.0",
   "private": true,
   "dependencies": {
-    "keystone": "4.0.0-beta.8",
-    "lodash": "^4.13.1",
-    "pug": "2.0.3",
+    "async": "2.6.0",
     "dotenv": "5.0.1",
-    "async": "2.6.0"
+    "keystone": "deviavir/keystone#patch-1",
+    "lodash": "^4.13.1",
+    "pug": "2.0.3"
   },
   "devDependencies": {
     "eslint": "4.19.1",
