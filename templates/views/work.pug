@@ -1,0 +1,28 @@
+extends ../layouts/default
+
+block content
+  .container
+    .row
+      .col-md-12.col-lg-12
+      article
+        p
+          a(href="/works") <- Back to works
+        hr
+        header
+          h1 #{data.work.title}
+        .row
+          .col-md-6.col-lg-6
+            if data.work.image
+              img(src=data.work._.image.fit(750,450)).img-responsive
+          .col-md-6.col-lg-6
+            ul.list-group
+              li.list-group-item.active
+                strong 制作情報
+              li.list-group-item
+                strong 制作時間:
+                | #{data.work.manMonth}日
+              li.list-group-item
+                strong 制作ポイント:
+                != data.work.message
+              li.list-group-item
+                != data.work.content.html
