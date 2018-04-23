@@ -25,7 +25,13 @@ var apiHandlers = require('./api/announcement');
 
 // Common Middleware
 keystone.pre('routes', middleware.initLocals);
+keystone.pre('render', middleware.theme);
 keystone.pre('render', middleware.flashMessages);
+
+keystone.set('404', function (req, res, next) {
+    middleware.theme(req, res, next);
+	res.status(404).render('errors/404');
+});
 
 // Import Route Controllers
 var routes = {
