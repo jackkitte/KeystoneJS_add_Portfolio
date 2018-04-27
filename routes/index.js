@@ -25,32 +25,32 @@ var apiHandlers = require('./api/announcement');
 
 // Common Middleware
 keystone.pre('routes', middleware.initLocals);
-keystone.pre('render', middleware.theme);
+keystone.pre('routes', middleware.theme);
 keystone.pre('render', middleware.flashMessages);
 
 keystone.set('404', function (req, res, next) {
     middleware.theme(req, res, next);
-	res.status(404).render('errors/404');
+  res.status(404).render('errors/404');
 });
 
 // Import Route Controllers
 var routes = {
-	views: importRoutes('./views'),
+  views: importRoutes('./views'),
 };
 
 // Setup Route Bindings
 exports = module.exports = function (app) {
-	// Views
-	app.get('/', routes.views.index);
-	app.get('/blog/:category?', routes.views.blog);
-	app.get('/blog/post/:post', routes.views.post);
+  // Views
+  app.get('/', routes.views.index);
+  app.get('/blog/:category?', routes.views.blog);
+  app.all('/blog/post/:post', routes.views.post);
   app.get('/works/:work', routes.views.work);
   app.get('/works', routes.views.works);
   app.get('/announcement', routes.views.announcement);
   app.get('/api/announcement', apiHandlers.getAnnouncements);
-	app.all('/contact', routes.views.contact);
+  app.all('/contact', routes.views.contact);
 
-	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
-	// app.get('/protected', middleware.requireUser, routes.views.protected);
+  // NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
+  // app.get('/protected', middleware.requireUser, routes.views.protected);
 
 };

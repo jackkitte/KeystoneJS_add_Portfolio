@@ -10,19 +10,19 @@ var keystone = require('keystone');
 // and documentation.
 
 keystone.init({
-	'name': 'sample-works',
-	'brand': 'sample-works',
+  'name': 'sample-works',
+  'brand': 'sample-works',
 
-	'less': 'public',
-	'static': 'public',
-	'favicon': 'public/favicon.ico',
-	'views': 'templates/views',
-	'view engine': 'pug',
+  'less': 'public',
+  'static': 'public',
+  'favicon': 'public/favicon.ico',
+  'views': 'templates/views',
+  'view engine': 'pug',
 
-	'auto update': true,
-	'session': true,
-	'auth': true,
-	'user model': 'User',
+  'auto update': true,
+  'session': true,
+  'auth': true,
+  'user model': 'User',
 });
 
 // Load your project's Models
@@ -32,10 +32,10 @@ keystone.import('models');
 // bundled templates and layouts. Any runtime locals (that should be set uniquely
 // for each request) should be added to ./routes/middleware.js
 keystone.set('locals', {
-	_: require('lodash'),
-	env: keystone.get('env'),
-	utils: keystone.utils,
-	editable: keystone.content.editable,
+  _: require('lodash'),
+  env: keystone.get('env'),
+  utils: keystone.utils,
+  editable: keystone.content.editable,
 });
 
 // Load your project's Routes
@@ -44,14 +44,12 @@ keystone.set('routes', require('./routes'));
 
 // Configure the navigation bar in Keystone's Admin UI
 keystone.set('nav', {
-	posts: ['posts', 'post-categories'],
+  posts: ['posts', 'post-categories'],
   works: 'works',
-	enquiries: 'enquiries',
-	users: 'users',
+  enquiries: 'enquiries',
+  users: 'users',
 });
 
 // Start Keystone to connect to your database and initialise the web server
-
-
 
 keystone.start();
