@@ -9,6 +9,9 @@ exports = module.exports = function (req, res) {
   // item in the header navigation.
   locals.section = 'home';
 
+  var Announcement = keystone.list('Announcement').model;
+  view.query('announcements', Announcement.find());
+
   // Render the view
   view.render('index');
 };
