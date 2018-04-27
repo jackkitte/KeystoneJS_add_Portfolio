@@ -18,6 +18,7 @@ var _ = require('lodash');
   or replace it with your own templates / logic.
 */
 exports.initLocals = function (req, res, next) {
+  res.locals.title = 'jackkitte Blog';
   res.locals.navLinks = [
     { label: 'Home', key: 'home', href: '/' },
     { label: 'Blog', key: 'blog', href: '/blog' },
@@ -82,5 +83,4 @@ exports.theme = function (req, res, next) {
   ];
   res.locals.currentTheme = req.session.theme || 'Bootstrap';
   next();
-  console.log(res.locals);
 };

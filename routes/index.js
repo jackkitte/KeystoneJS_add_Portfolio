@@ -29,7 +29,7 @@ keystone.pre('routes', middleware.theme);
 keystone.pre('render', middleware.flashMessages);
 
 keystone.set('404', function (req, res, next) {
-    middleware.theme(req, res, next);
+  middleware.theme(req, res, next);
   res.status(404).render('errors/404');
 });
 
