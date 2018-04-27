@@ -19,9 +19,10 @@ var _ = require('lodash');
 */
 exports.initLocals = function (req, res, next) {
   res.locals.title = 'jackkitte Blog';
+  res.locals.admin_email = 'jackkitte735@gmail.com';
   res.locals.navLinks = [
     { label: 'Home', key: 'home', href: '/' },
-    { label: 'User', key: 'user', href: '/user' },
+    { label: 'Who', key: 'user', href: '/user' },
     { label: 'Blog', key: 'blog', href: '/blog' },
     { label: 'Works', key: 'works', href: '/works' },
     { label: 'Announcement', key: 'announcement', href: '/announcement' },

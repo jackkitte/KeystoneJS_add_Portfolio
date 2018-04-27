@@ -11,7 +11,9 @@ User.add({
   name: { type: Types.Name, required: true, index: true },
   email: { type: Types.Email, initial: true, required: true, unique: true, index: true },
   image: { type: Types.CloudinaryImage },
+  hobby: { type: Types.Textarea, height: 200 },
   skillset: { type: Types.Key, separator: ' ', index: true },
+  description: { type: Types.Markdown, toolbarOptions: { hiddenButtons: '' }, height: 400 },
   password: { type: Types.Password, initial: true, required: true },
 }, 'Permissions', {
   isAdmin: { type: Boolean, label: 'Can access Keystone', index: true },

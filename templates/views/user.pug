@@ -16,8 +16,12 @@ block content
               li.list-group-item.active
                 strong 趣味
               li.list-group-item
-                strong なし
+                != data.hobby
               li.list-group-item.active
                 strong スキルセット
               li.list-group-item
                 != data.skillset
+              li.list-group-item.active
+                strong 来歴
+              li.list-group-item
+                != data.description.html

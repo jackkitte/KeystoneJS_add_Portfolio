@@ -1,6 +1,6 @@
 var keystone = require('keystone');
 
-exports = module.exports = function(req, res) {
+exports = module.exports = function (req, res) {
   var view = new keystone.View(req, res);
   var locals = res.locals;
 
@@ -10,16 +10,16 @@ exports = module.exports = function(req, res) {
     user: locals.user,
   };
 
-  view.on('init', function(next) {
+  view.on('init', function (next) {
     var q = keystone.list('User').model.findOne({
-      email: locals.filters.user.email,
+      email: locals.admin_email,
     });
 
-    q.exec(function(err, result) {
+    q.exec(function (err, result) {
       locals.data = result;
       next(err);
     });
   });
 
   view.render('user');
-}
+};
